@@ -16,12 +16,12 @@ function sumWhile(nums) {
   return sum;
 }
 
-const sumRecursion = (nums, index) => {
-  if (index <= 0) {
-    return 1;
+function sumRecursion(nums) {
+  if (nums.length === 0) {
+    return 0;
   }
-  return sumRecursion(nums, index - 1) + nums[index - 1];
-};
+  return nums[0] + sumRecursion(nums.slice(1, nums.length));
+}
 
 function sumTheSimpleWay(nums) {
   return _.reduce(nums, (memo, num) => memo + num);
